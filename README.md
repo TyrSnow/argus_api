@@ -1,33 +1,18 @@
 # argus_api
+argus_api负责收集各个计算节点上传的计算数据，并将结果汇总提供给web页面进行展示。
+所有计算节点需要将自身的计算结果映射到0~1之间，其中1代表最有投资价值。
 
+## 功能点
+### 管理员用户
+1. 创建并配置计算节点。提供name、desc、secret_key，自动生成access_token（每次提交数据都会造成access_token的自动更新，计算节点需要自行持久化该值），计算节点提交数据时需要使用secret_key、access_token、timeStamp三个值进行hash，服务端依据此对计算节点的身份进行验证
+2. 维护股票池数据。事先导入股票列表，并可以选择性的在展示页面展示股票
+3. 更新各个计算节点的权重。根据各个计算节点的历史正确率，对他们的权重进行重新分配
 
+### 一般用户
+1. 浏览各个计算节点的计算结果
+2. 设置10支股票作为自选
 
-## QuickStart
-
-<!-- add docs here for user -->
-
-see [egg docs][egg] for more detail.
-
-### Development
-
-```bash
-$ npm i
-$ npm run dev
-$ open http://localhost:7001/
-```
-
-### Deploy
-
-```bash
-$ npm start
-$ npm stop
-```
-
-### npm scripts
-
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
-
-[egg]: https://eggjs.org
+### 计算节点
+1. 获取需要计算的股票列表
+2. 将计算结果提交给服务端
+3. 提供一个回调接口用于触发一次计算
