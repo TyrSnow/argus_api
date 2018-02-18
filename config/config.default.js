@@ -17,10 +17,14 @@ module.exports = appInfo => {
       client: {
         host: '127.0.0.1',
         port: '3306',
-        user: 'dev',
-        password: 'dev123456',
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
         database: 'Argus',
       },
     },
+    passportGithub: {
+      key: process.env.AUTH_GITHUB_ID,
+      secret: process.env.AUTH_GITHUB_SECRET
+    }
   };
 };
