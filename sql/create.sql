@@ -1,4 +1,6 @@
 CREATE DATABASE `Argus` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `Argus`
+
 CREATE TABLE `admins` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
@@ -11,6 +13,7 @@ CREATE TABLE `admins` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `analysis` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
