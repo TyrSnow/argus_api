@@ -44,6 +44,12 @@ const CODE = {
   ILLEGAL_PASSWORD: C(23001, '非法的密码格式'),
   ILLEGAL_USERNAME: C(23002, '非法的用户名'),
 
+  // 业务层错误
+  // 文件上传
+  MIMETYPE_ERROR: C(30100, '非法的文件类型', 400),
+
+  // 维度
+  CATEGORY_NOT_EXIST: C(30200, '维度不存在', 404),
 };
 
 export default CODE;

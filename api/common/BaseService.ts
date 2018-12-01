@@ -22,7 +22,11 @@ export default class BaseService {
     });
   }
   
-  query(query: any, projections: any) {
+  queryOne(query: any, projections?: any) {
+    return this.model.findOne(query, projections);
+  }
+
+  query(query: any, projections?: any) {
     return this.model.find(query, projections);
   }
   
